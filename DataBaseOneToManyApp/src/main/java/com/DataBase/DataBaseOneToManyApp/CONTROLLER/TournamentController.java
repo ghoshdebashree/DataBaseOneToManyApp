@@ -34,14 +34,14 @@ public class TournamentController {
         service.deleteTournament(id);
     }
 
-    @PutMapping("/addTour/{id}/addReg/{registeration_id}")
+    @PutMapping("/addTour/{id}/addReg/{registration_id}")
     public Tournament addReg(@PathVariable int id, @PathVariable int registration_id){
         Registration registration = registrationService.getOneRegister(registration_id);
-        return service.addRegistration(registration, registration_id);
+        return service.addRegistration(registration,id);
     }
     @PutMapping("/removeTour/{id}/remove_registrations/{registration_id}")
     public Tournament removeReg(@PathVariable int id, @PathVariable int registration_id){
         Registration registration = registrationService.getOneRegister(registration_id);
-        return  service.deleteRegistration(registration, registration_id);
+        return  service.deleteRegistration(registration, id);
     }
 }
